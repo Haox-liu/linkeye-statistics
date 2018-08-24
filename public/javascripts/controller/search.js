@@ -20,7 +20,7 @@ angular.module('AppRoute').controller("SearchCtrl", ["$scope", "$http", "$filter
     };
 
     $scope.userInfo = userInfo;
-    //$scope.mobile = '18515882328';
+    // $scope.mobile = '18515882328';
 
     //提交, 查询数据
     $scope.search = function () {

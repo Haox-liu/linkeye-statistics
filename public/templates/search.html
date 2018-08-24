@@ -16,127 +16,175 @@
   <!-- MAIN CONTENT -->
   <div class="main-content">
     <div class="container-fluid">
-        <div class="panel panel-headline">
-          <div class="panel-heading">
-            <h3 class="panel-title">Search View</h3>
-            <!-- <p class="panel-subtitle">Period: Oct 14, 2016 - Oct 21, 2016</p> -->
-          </div>
-          <div class="panel-body">
-              <div class="row">
-              <div class="col-md-5">
-                  <div class="input-group">
-                    <input type="search" placeholder="Mobile......" class="form-control input-lg" ng-model="mobile">
-                    <span class="input-group-btn">
+      <div class="panel panel-headline">
+        <div class="panel-heading">
+          <h3 class="panel-title">Search View</h3>
+          <!-- <p class="panel-subtitle">Period: Oct 14, 2016 - Oct 21, 2016</p> -->
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-5">
+              <div class="input-group">
+                <input type="search" placeholder="Mobile......" class="form-control input-lg" ng-model="mobile">
+                <span class="input-group-btn">
                       <button type="button" class="btn btn-primary btn-lg" ng-click="search()">Search</button>
-                    </span>
-                  </div>
-                  <br>
-                  <span class="alert alert-danger" ng-show="tip1">请填写星界用户电话</span>
-                  <span class="alert alert-danger" ng-show="tip2">查不到该用户信息，请填写正确的手机号</span>
+                </span>
               </div>
               <br>
-              <br>
-              <div class="profile-info">
-                <div class="col-md-5">
-                  <h3 class="text-center heading">基本信息</h3>
-                  <ul class="list-unstyled list-justify">
-                    <li><font size="3">姓名 <span>{{userInfo.realName}}</span></font></li>
-                    <li><font size="3">星球号 <span>{{userInfo.serialNumber}}</span></font></li>
-                    <li><font size="3">手机号 <span>{{userInfo.mobile}}</span></font></li>
-                    <li><font size="3">算力 <span>{{userInfo.calcScore}}</span></font></li>
-                    <li><font size="3">基本认证 <span>{{userInfo.isAuth}}</span></font></li>
-                    <li><font size="3">上传照片 <span>{{userInfo.isPhoto}}</span></font></li>
-                    <li><font size="3">人脸识别 <span>{{userInfo.isFace}}</span></font></li>
-                    <li><font size="3">绑定银行卡 <span>{{userInfo.isBank}}</span></font></li>
-                    <li><font size="3">资产证明 <span>{{userInfo.isAsset}}</span></font></li>
-                    <li><font size="3">职业登记 <span>{{userInfo.isCareer}}</span></font></li>
-                    <li><font size="3">上传学历 <span>{{userInfo.isEducation}}</span></font></li>
-                    <li><font size="3">当日签到 <span>{{userInfo.todaySignFlag}}</span></font></li>
-                    <li><font size="3">连续签到天数 <span>{{userInfo.validSignCount}}</span></font></li>
-                    <li><font size="3">有效邀请人数 <span>{{userInfo.validInviteCount}}</span></font></li>
-                    <li><font size="3">注册时间 <span>{{userInfo.createTime}}</span></font></li>
-                  </ul>
+              <span class="alert alert-danger" ng-show="tip1">请填写星界用户电话</span>
+              <span class="alert alert-danger" ng-show="tip2">查不到该用户信息，请填写正确的手机号</span>
+            </div>
+            <br>
+            <br>
+          </div>
+
+          <!-- ============= Tab ==================  -->
+          <div class="row tab-ul">
+            <ul id="myTab" class="nav nav-tabs">
+              <li class="active"><a href="#basicInfo" data-toggle="tab"><h4>基本信息</h4></a></li>
+              <li><a href="#userToken" data-toggle="tab"><h4>资产信息</h4></a></li>
+              <li><a href="#calcScore" data-toggle="tab"><h4>算力记录</h4></a></li>
+            </ul>
+
+            <div id="myTabContent" class="tab-content">
+              <div class="tab-pane fade in active" id="basicInfo">
+                <!-- Basic Info -->
+                <div class="row">
+                  <div class="profile-info">
+                    <div class="col-md-6">
+                      <h3 class="text-center heading">基本信息</h3>
+                      <ul class="list-unstyled list-justify">
+                        <li>
+                          <font size="3">姓名 <span>{{userInfo.realName}}</span></font>
+                        </li>
+                        <li>
+                          <font size="3">星球号 <span>{{userInfo.serialNumber}}</span></font>
+                        </li>
+                        <li>
+                          <font size="3">手机号 <span>{{userInfo.mobile}}</span></font>
+                        </li>
+                        <li>
+                          <font size="3">算力 <span>{{userInfo.calcScore}}</span></font>
+                        </li>
+                        <li>
+                          <font size="3">基本认证 <span>{{userInfo.isAuth}}</span></font>
+                        </li>
+                        <li>
+                          <font size="3">上传照片 <span>{{userInfo.isPhoto}}</span></font>
+                        </li>
+                        <li>
+                          <font size="3">人脸识别 <span>{{userInfo.isFace}}</span></font>
+                        </li>
+                        <li>
+                          <font size="3">绑定银行卡 <span>{{userInfo.isBank}}</span></font>
+                        </li>
+                        <li>
+                          <font size="3">资产证明 <span>{{userInfo.isAsset}}</span></font>
+                        </li>
+                        <li>
+                          <font size="3">职业登记 <span>{{userInfo.isCareer}}</span></font>
+                        </li>
+                        <li>
+                          <font size="3">上传学历 <span>{{userInfo.isEducation}}</span></font>
+                        </li>
+                        <li>
+                          <font size="3">当日签到 <span>{{userInfo.todaySignFlag}}</span></font>
+                        </li>
+                        <li>
+                          <font size="3">连续签到天数 <span>{{userInfo.validSignCount}}</span></font>
+                        </li>
+                        <li>
+                          <font size="3">有效邀请人数 <span>{{userInfo.validInviteCount}}</span></font>
+                        </li>
+                        <li>
+                          <font size="3">注册时间 <span>{{userInfo.createTime}}</span></font>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <!-- END Basic Info -->
+              </div>
+              <div class="tab-pane fade" id="userToken">
+                <!-- Token Info -->
+                <div class="row">
+                  <div class="table-info">
+                    <h3 class="text-center heading">资&nbsp&nbsp&nbsp&nbsp&nbsp产</h3>
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>币类型</th>
+                          <th>资产</th>
+                          <th>冻结资产</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="item in userTokenList">
+                          <td>{{ item.tokenType }}</td>
+                          <td>{{ item.tokenNumber }}</td>
+                          <td>{{ item.frozenAccount }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <br>
+                    <br>
+                    <h3 class="text-center heading">资&nbsp&nbsp产&nbsp&nbsp记&nbsp&nbsp录</h3>
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>币类型</th>
+                          <th>操作类型</th>
+                          <th>币数量</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="item in tokenRecordList">
+                          <td>{{ item.tokenType }}</td>
+                          <td>{{ item.operationType }}</td>
+                          <td>{{ item.tokenNumberSum }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <!-- END Token Info -->
+              </div>
+              <div class="tab-pane fade" id="calcScore">
+                <!-- CalcScore Info -->
+                <div class="row">
+                  <div class="table-info">
+                    <h3 class="text-center heading">算&nbsp&nbsp力&nbsp&nbsp记&nbsp&nbsp录</h3>
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>记录类型</th>
+                          <th>算力</th>
+                          <th>之前算力</th>
+                          <th>之后算力</th>
+                          <th>记录描述</th>
+                          <th>是否有效</th>
+                          <th>时间</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr ng-repeat="item in socreRecordList">
+                          <td>{{ item.operationType }}</td>
+                          <td>{{ item.score }}</td>
+                          <td>{{ item.preScore }}</td>
+                          <td>{{ item.afterScore }}</td>
+                          <td>{{ item.operationDescribe }}</td>
+                          <td>{{ item.isValid }}</td>
+                          <td>{{ item.createTime }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
-            </div>
-            <!-- END Basic Info -->
-
-            <!-- Token Info -->
-            <div class="row">
-              <div class="table-info">
-              <hr>
-              <br>
-                <h3 class="text-center heading">资&nbsp&nbsp&nbsp&nbsp&nbsp产</h3>
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th>币类型</th>
-                      <th>资产</th>
-                      <th>冻结资产</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr  ng-repeat="item in userTokenList">
-                      <td>{{ item.tokenType }}</td>
-                      <td>{{ item.tokenNumber }}</td>
-                      <td>{{ item.frozenAccount }}</td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <h3 class="text-center heading">资&nbsp&nbsp产&nbsp&nbsp记&nbsp&nbsp录</h3>
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <th>币类型</th>
-                      <th>操作类型</th>
-                      <th>币数量</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr  ng-repeat="item in tokenRecordList">
-                      <td>{{ item.tokenType }}</td>
-                      <td>{{ item.operationType }}</td>
-                      <td>{{ item.tokenNumberSum }}</td>
-                    </tr>
-                  </tbody>
-                </table>
+              <!-- End CalcScore Info -->
             </div>
           </div>
-          <!-- END Token Info -->
-
-          <!-- CalcScore Info -->
-          <div class="row">
-            <div class="table-info">
-            <hr>
-            <br>
-              <h3 class="text-center heading">算&nbsp&nbsp力&nbsp&nbsp记&nbsp&nbsp录</h3>
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>记录类型</th>
-                    <th>算力</th>
-                    <th>之前算力</th>
-                    <th>之后算力</th>
-                    <th>记录描述</th>
-                    <th>是否有效</th>
-                    <th>时间</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr  ng-repeat="item in socreRecordList">
-                    <td>{{ item.operationType }}</td>
-                    <td>{{ item.score }}</td>
-                    <td>{{ item.preScore }}</td>
-                    <td>{{ item.afterScore }}</td>
-                    <td>{{ item.operationDescribe }}</td>
-                    <td>{{ item.isValid }}</td>
-                    <td>{{ item.createTime }}</td>
-                  </tr>
-                </tbody>
-              </table>
-          </div>
-        </div>
+          <!-- ============= Tab ================== -->
 
         </div>
       </div>
@@ -144,3 +192,13 @@
   </div>
   <!-- END MAIN CONTENT -->
 </div>
+
+
+<script>
+    $(function () {
+      $('#myTab a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+      })
+    })
+</script>
