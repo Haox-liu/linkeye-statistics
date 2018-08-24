@@ -1,0 +1,67 @@
+<div id="sidebar-nav" class="sidebar">
+  <div class="sidebar-scroll">
+    <nav>
+      <ul class="nav">
+        <li><a href="#!/search"><i class="lnr lnr-home"></i> <span>Search</span></a></li>
+        <li><a href="#!/tables" class="active"><i class="lnr lnr-dice"></i> <span>Tables</span></a></li>
+        <li><a href="#!/elements" class=""><i class="lnr lnr-code"></i> <span>Elements</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+
+<div class="main">
+  <!-- MAIN CONTENT -->
+  <div class="main-content">
+    <div class="container-fluid">
+      <!-- <div class="row"> -->
+        <div class="col-md-12">
+          <!-- BASIC TABLE -->
+          <div class="panel panel-headline">
+            <div class="panel-heading">
+              <h3 class="panel-title">Table View</h3>
+              <!-- <p class="panel-subtitle">Period: Oct 14, 2016 - Oct 21, 2016</p> -->
+            </div>
+            <form class="navbar-form navbar-left">
+              <div class="input-group">
+                <input type="text" id="dateRange" class="form-control input-lg">
+                <span class="input-group-btn"><button type="button" class="btn btn-primary btn-lg" ng-click="submit()">查询</button></span>
+              </div>
+            </form>
+            <div class="panel-body">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>时间</th>
+                    <th>注册量</th>
+                    <th>存在邀请关系</th>
+                    <th>当日创建产出</th>
+                    <th>流入-自己账户</th>
+                    <th>流出-他人账户</th>
+                    <th>摘星游戏次数(最高奖个数)</th>
+                    <th>偷星游戏人次(偷成功的星数)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr  ng-repeat="item in tableData">
+                    <td>{{ item.date }}</td>
+                    <td>{{ item.registerCount }}</td>
+                    <td>{{ item.userSharecount }}</td>
+                    <td>{{ item.createProduceCount }}</td>
+                    <td>{{ item.intoMyAccountCount }}</td>
+                    <td>{{ item.intoOtherAccountCount }}</td>
+                    <td>{{ item.pickStarMaxCount }}</td>
+                    <td>{{ item.stealStarCount }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- END BASIC TABLE -->
+        </div>
+      <!-- </div> -->
+    </div>
+  </div>
+  <!-- END MAIN CONTENT -->
+</div>
